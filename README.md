@@ -33,3 +33,29 @@ For long-term project maintainability, I usually have Cinder as a submodule of m
 ![tinderbox-result](https://cloud.githubusercontent.com/assets/81553/4901038/fe0a4f80-642d-11e4-9e5c-ff1ccc2c8bc0.png)
 
 You are now ready to dive into the code on your freshly-created Cinder project.
+
+
+## Troubleshooting
+
+### Program Won’t Compile
+If your project doesn't compile because of linker errors, make sure you have built the Cinder library. Cinder is built as a static library, which means all of its code is compiled up-front and then the parts you use are copied into your program when it is compiled. For that reason, you must build Cinder before you can build your application. Fortunately, this is easy and can be done a few ways:
+
+1) Run the fullbuild script on OSX to build everything.
+```bash
+cd Cinder/xcode
+./fullbuild.sh
+```
+2) Open the Xcode project or Visual Studio solution and build the targets you need. In visual studio, you can set up a batch build to build all of the targets at once. The fullbuild script on OSX is a workaround for Xcode lacking that functionality.
+
+### Program Crashing Outside Your Code
+If your program is crashing with strange errors whenever you call a Cinder function, or somewhere in a system library, rebuild Cinder. A while ago, David wrote a [forum post](https://forum.libcinder.org/topic/seeing-something-odd-rebuild-cinder) explaining why this is necessary. A brief summary follows.
+
+Your program understands Cinder by the declarations provided in the various header files (.h). The headers are your map or atlas. The actual code that is executed by your program is provided by the Cinder binaries (libcinder.a). The binaries are the world. If you have updated the Cinder headers (e.g. by doing a git pull) but not rebuilt the Cinder binaries, there can be a mismatch between your map and the world. If you have planned everything by the map and can’t compensate once you are in the world, you will have problems.
+
+Another way your world can differ from the map is when you switch compilers. Often, this quietly happens when you update Xcode. Make sure you rebuild all the libraries you depend on when you update your compile.
+
+The solution is almost always: rebuild Cinder.
+
+### Other
+
+There are myriad ways things can go wrong in a program written in any language. C++ has some particularly special ways. We reduce the possibility of those errors by constraining the ways we use the language. Some of those ideas are outlined in our [C++ Lessons](https://github.com/sosolimited/Cpp-Lessons).
