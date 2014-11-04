@@ -9,6 +9,7 @@ No samples have been written yet. The following is a list of planned samples (co
 
 - Simple Drawing: immediate-mode style drawing and drawing primitives.
 - File IO: loading text, JSON, XML, images, (static media).
+- Typography: rendering text to screen in a few ways.
 - Retained Drawing: working with cinder::gl::Batch for more efficient drawing.
 
 ## Creating a new Project
