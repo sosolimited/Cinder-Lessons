@@ -3,6 +3,14 @@ Cinder-Lessons
 
 Samples demonstrating basic techniques with Cinder.
 
+## The Samples
+
+No samples have been written yet. The following is a list of planned samples (coming soon!).
+
+- Simple Drawing: immediate-mode style drawing and drawing primitives.
+- File IO: loading text, JSON, XML, images, (static media).
+- Retained Drawing: working with cinder::gl::Batch for more efficient drawing.
+
 ## Creating a new Project
 
 Cinder provides a tool called TinderBox for creating new projects.
@@ -23,3 +31,5 @@ For long-term project maintainability, I usually have Cinder as a submodule of m
 
 - Click on `Finish` to create your project and open it in Finder/Explorer.
 ![tinderbox-result](https://cloud.githubusercontent.com/assets/81553/4901038/fe0a4f80-642d-11e4-9e5c-ff1ccc2c8bc0.png)
+
+You are now ready to dive into the code on your freshly-created Cinder project.
